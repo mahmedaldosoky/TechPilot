@@ -1,0 +1,56 @@
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  border: 1px solid #2e9264;
+  animation: fadeInOut 0.5s ease-in-out;
+  position: relative;
+}
+
+.card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+  background-color: #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Ensure the card-body takes the full height of the card */
+}
+
+.card-title {
+  color: #000;
+  flex-grow: 1; /* Allow the title to take available vertical space */
+  text-decoration: none !important; /* Remove underline */
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  background-color: #fff;
+}
+
+.btn-success {
+  width: 100%;
+  margin-top: auto; /* Push the button to the bottom of the card-body */
+}
+.card-price{
+  text-decoration: underline;
+  color: #cd1f1f;
+  font-size: large;
+  font-weight: bold;
+}

@@ -1,1 +1,64 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  font-family: "Rubik", sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+}
+.bg-mint {
+  background-color: #393e46; /* Mint green color */
+}
+
+.text-mint {
+  color: #2e9264; /* Mint green color */
+}
+
+.nav-link.transition {
+  transition: color 0.3s ease-in-out;
+}
+
+.nav-link.transition:hover {
+  color: #fff; /* Change color on hover, you can adjust this as needed */
+}
+
+/* Footer animations */
+.footer {
+  opacity: 0;
+  animation: fadeInUp 1s forwards;
+  margin-top: 0; /* take available whitespace */
+  margin-bottom: -10px;      /* remove bottom whitespace */
+  padding-bottom: 5px;
+  height: 50px;            /* calc height when limited content */
+
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* src/styles.css */
+
+/* Footer transitions */
+.footer.transition {
+    transition: opacity 0.5s ease-in-out;
+  }
+  
+  .footer.transition:hover {
+    opacity: 0.8; /* Adjust the opacity on hover as needed */
+  }
+  
+  
+
+  .navbar{
+    height: 60px;
+  }
+  .content{
+    min-height: calc(100vh - 134px) /* you have to minus header and footer width 
+    together*/
+  }

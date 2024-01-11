@@ -1,0 +1,173 @@
+<div class="superNav border-bottom py-2 bg-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-12 centerOnMobile">
+        <!-- <select class="me-3 border-0 bg-light">
+          <option value="en-us">EN-US</option>
+        </select> -->
+        <span class="d-sm-inline-block me-3"
+          ><strong>support@techpilot.com</strong></span
+        >
+        <span class="me-3"
+          ><i class="fa-solid fa-phone me-1 text-warning"></i
+          ><strong>(555) 123-4567 </strong></span
+        >
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-12 text-lg-end mx-auto text-center">
+        <span class="me-3 d-lg-inline-block">
+          <i class="fa-solid fa-file text-muted me-1"></i>
+          <a class="text-muted" href="about">About</a>
+        </span>
+        <span class="me-3 d-lg-inline-block">
+          <i class="fa-solid fa-file text-muted me-2"></i>
+          <a class="text-muted" href="policy">Policy</a>
+        </span>
+        <span class="me-3 d-lg-inline-block">
+          <i class="fa-solid fa-phone text-muted me-2"></i>
+          <a class="text-muted" href="contact">Contact us</a>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+<nav
+  class="navbar navbar-expand-lg bg-white sticky-top navbar-light p-3 shadow-sm"
+>
+  <div class="container">
+    <a class="navbar-brand" href="#"
+      ><i class="fa-solid fa-shop me-2"></i> <strong>TECH PILOT</strong></a
+    >
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div
+      class="collapse navbar-collapse"
+      id="navbarNavDropdown"
+      style="background-color: white"
+    >
+      <div class="ms-auto d-lg-block navbar-nav">
+        <div class="input-group">
+          <!-- Bind the input field value to searchTerm -->
+          <input
+            type="text"
+            class="form-control border-success"
+            style="color: #7a7a7a"
+            [(ngModel)]="searchTerm"
+            (input)="onSearch()"
+          />
+
+          <button
+            class="btn btn-success text-white search-button"
+            (click)="navigateToSearch()"
+          >
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+
+          <!-- Display search results in a list -->
+          <ul
+            *ngIf="searchResults.length > 0"
+            class="list-group position-absolute mt-2"
+            style="width: 100%; z-index: 1000; top: 30px"
+          >
+            <li *ngFor="let product of searchResults" class="list-group-item">
+              <a [href]="'/products/' + product.id">
+                <img
+                  src="{{ product.image }}"
+                  alt="{{ product.title }}"
+                  class="img-thumbnail"
+                  style="max-width: 50px; max-height: 50px; margin-right: 10px"
+                />
+                {{ product.title }}
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a
+            class="nav-link mx-2 text-uppercase active"
+            aria-current="page"
+            href="/category/cameras"
+            >Cameras</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link mx-2 text-uppercase"
+            href="/category/graphics-cards"
+            >Graphics Cards
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link mx-2 text-uppercase" href="/category/smartphones"
+            >Smartphones</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link mx-2 text-uppercase" href="/category/audio"
+            >Audio</a
+          >
+        </li>
+      </ul>
+      <ul class="navbar-nav ms-auto">
+        <ng-container *ngIf="isLoggedIn(); else notLoggedIn">
+          <!-- User is logged in -->
+          <li class="nav-item">
+            <a class="nav-link mx-2 text-uppercase" href="cart">
+              <i class="fa-solid fa-cart-shopping me-1"></i> Cart
+            </a>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link mx-2 text-uppercase dropdown-toggle"
+              href="#"
+              role="button"
+              id="accountDropdown"
+              data-bs-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              <i class="fa-solid fa-circle-user me-1"></i> Account
+            </a>
+            <div class="dropdown-menu" aria-labelledby="accountDropdown">
+              <a class="dropdown-item" href="/profile">
+                <i class="fa-solid fa-user me-1"></i> My Profile
+              </a>
+              <a class="dropdown-item text-danger" href="#" (click)="logout()">
+                <i class="fa-solid fa-sign-out me-1 text-danger"></i> Logout
+              </a>
+            </div>
+          </li>
+        </ng-container>
+        <ng-template #notLoggedIn>
+          <!-- User is not logged in -->
+          <li class="nav-item">
+            <a class="nav-link mx-2 text-uppercase" href="/signup"> Sign Up </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-2 text-uppercase" href="/login"> Login </a>
+          </li>
+        </ng-template>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<style>
+  /* Custom styles for mobile version */
+  @media (max-width: 767px) {
+    #navbarNavDropdown {
+      margin-top: 20px; /* Adjust this value based on your preference */
+    }
+  }
+</style>

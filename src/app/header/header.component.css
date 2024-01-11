@@ -1,0 +1,24 @@
+a {
+    font-size:14px;
+    font-weight:700
+  }
+  .superNav {
+    font-size:13px;
+  }
+  .form-control {
+    outline:none !important;
+    box-shadow: none !important;
+  }
+  @media screen and (max-width:540px){
+    .centerOnMobile {
+      text-align:center
+    }
+  }
+
+  .search-button{
+border-radius: 0 5px 5px 0 ;
+  }
+
+  .dropdown-item i {
+    margin-right: 8px;
+  }

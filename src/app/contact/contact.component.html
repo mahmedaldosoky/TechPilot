@@ -1,0 +1,28 @@
+<!-- contact.component.html -->
+
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Contact TechPilot</h1>
+  
+    <p class="text-center">We value your thoughts and inquiries. Whether you have questions, suggestions, or just want to say hello, we're here and eager to hear from you. Your feedback is crucial to helping us improve and provide you with the best experience. Don't hesitate—send us a message below, and let's start the conversation!</p>
+  
+    <form class="col-md-6 mx-auto" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Your Name" formControlName="name">
+        <div *ngIf="contactForm.get('name')!.hasError('required') && contactForm.get('name')!.touched"
+          class="text-danger">Name is required</div>
+      </div>
+      <div class="form-group">
+        <input type="email" class="form-control" placeholder="Your Email" formControlName="email">
+        <div *ngIf="contactForm.get('email')!.hasError('required') && contactForm.get('email')!.touched"
+          class="text-danger">Email is required</div>
+        <div *ngIf="contactForm.get('email')!.hasError('email') && contactForm.get('email')!.touched"
+          class="text-danger">Please enter a valid email address</div>
+      </div>
+      <div class="form-group">
+        <textarea class="form-control" rows="4" placeholder="Your Message" formControlName="message"></textarea>
+        <div *ngIf="contactForm.get('message')!.hasError('required') && contactForm.get('message')!.touched"
+          class="text-danger">Message is required</div>
+      </div>
+      <button type="submit" class="btn btn-success w-100 btn-block ">Submit</button>
+    </form>
+</div>

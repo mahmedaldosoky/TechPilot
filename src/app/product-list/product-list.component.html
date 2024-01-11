@@ -1,0 +1,16 @@
+<div class="grid-container mb-2">
+  <ng-container *ngFor="let product of products">
+    <div class="card" [@fadeInAnimation]="'in'">
+      <a [routerLink]="['/products', product.id]"><img class="card-img-top" [src]="product.image" alt="Card image cap"></a>
+      <div class="card-body">
+        <a [routerLink]="['/products', product.id]" style="text-decoration: none;">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <h5 class="card-title">{{ product.title }}</h5>
+            <span class="card-price">${{ product.price }}</span>
+          </div>
+        </a>
+        <a [routerLink]="['/products', product.id]" class="btn btn-success">Buy</a>
+      </div>
+    </div>
+  </ng-container>
+</div>
