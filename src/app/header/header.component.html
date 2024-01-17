@@ -97,24 +97,28 @@
           <a
             class="nav-link mx-2 text-uppercase active"
             aria-current="page"
-            href="/category/cameras"
+            [routerLink]="['/category/cameras']"
             >Cameras</a
           >
         </li>
         <li class="nav-item">
           <a
             class="nav-link mx-2 text-uppercase"
-            href="/category/graphics-cards"
+            [routerLink]="['/category/graphics-cards']"
             >Graphics Cards
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link mx-2 text-uppercase" href="/category/smartphones"
+          <a class="nav-link mx-2 text-uppercase"
+          [routerLink]="['/category/smartphones']"
+
             >Smartphones</a
           >
         </li>
         <li class="nav-item">
-          <a class="nav-link mx-2 text-uppercase" href="/category/audio"
+          <a class="nav-link mx-2 text-uppercase" 
+          [routerLink]="['/category/audio']"
+          
             >Audio</a
           >
         </li>
@@ -123,7 +127,7 @@
         <ng-container *ngIf="isLoggedIn(); else notLoggedIn">
           <!-- User is logged in -->
           <li class="nav-item">
-            <a class="nav-link mx-2 text-uppercase" href="cart">
+            <a class="nav-link mx-2 text-uppercase" [routerLink]="['/cart']" >
               <i class="fa-solid fa-cart-shopping me-1"></i> Cart
             </a>
           </li>
@@ -140,7 +144,7 @@
               <i class="fa-solid fa-circle-user me-1"></i> Account
             </a>
             <div class="dropdown-menu" aria-labelledby="accountDropdown">
-              <a class="dropdown-item" href="/profile">
+              <a class="dropdown-item" [routerLink]="['/profile']" >
                 <i class="fa-solid fa-user me-1"></i> My Profile
               </a>
               <a class="dropdown-item text-danger" href="#" (click)="logout()">
@@ -152,10 +156,10 @@
         <ng-template #notLoggedIn>
           <!-- User is not logged in -->
           <li class="nav-item">
-            <a class="nav-link mx-2 text-uppercase" href="/signup"> Sign Up </a>
+            <a class="nav-link mx-2 text-uppercase" [routerLink]="['/signup']"  > Sign Up </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link mx-2 text-uppercase" href="/login"> Login </a>
+            <a class="nav-link mx-2 text-uppercase" [routerLink]="['/login']" > Login </a>
           </li>
         </ng-template>
       </ul>
