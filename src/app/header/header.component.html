@@ -16,15 +16,15 @@
       <div class="col-lg-6 col-md-6 col-sm-12 text-lg-end mx-auto text-center">
         <span class="me-3 d-lg-inline-block">
           <i class="fa-solid fa-file text-muted me-1"></i>
-          <a class="text-muted" href="about">About</a>
+          <a class="text-muted" [routerLink]="['/about']">About</a>
         </span>
         <span class="me-3 d-lg-inline-block">
           <i class="fa-solid fa-file text-muted me-2"></i>
-          <a class="text-muted" href="policy">Policy</a>
+          <a class="text-muted" [routerLink]="['/policy']">Policy</a>
         </span>
         <span class="me-3 d-lg-inline-block">
           <i class="fa-solid fa-phone text-muted me-2"></i>
-          <a class="text-muted" href="contact">Contact us</a>
+          <a class="text-muted" [routerLink]="['/contact']">Contact us</a>
         </span>
       </div>
     </div>
@@ -109,16 +109,16 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link mx-2 text-uppercase"
-          [routerLink]="['/category/smartphones']"
-
+          <a
+            class="nav-link mx-2 text-uppercase"
+            [routerLink]="['/category/smartphones']"
             >Smartphones</a
           >
         </li>
         <li class="nav-item">
-          <a class="nav-link mx-2 text-uppercase" 
-          [routerLink]="['/category/audio']"
-          
+          <a
+            class="nav-link mx-2 text-uppercase"
+            [routerLink]="['/category/audio']"
             >Audio</a
           >
         </li>
@@ -127,7 +127,7 @@
         <ng-container *ngIf="isLoggedIn(); else notLoggedIn">
           <!-- User is logged in -->
           <li class="nav-item">
-            <a class="nav-link mx-2 text-uppercase" [routerLink]="['/cart']" >
+            <a class="nav-link mx-2 text-uppercase" [routerLink]="['/cart']">
               <i class="fa-solid fa-cart-shopping me-1"></i> Cart
             </a>
           </li>
@@ -144,7 +144,7 @@
               <i class="fa-solid fa-circle-user me-1"></i> Account
             </a>
             <div class="dropdown-menu" aria-labelledby="accountDropdown">
-              <a class="dropdown-item" [routerLink]="['/profile']" >
+              <a class="dropdown-item" [routerLink]="['/profile']">
                 <i class="fa-solid fa-user me-1"></i> My Profile
               </a>
               <a class="dropdown-item text-danger" href="#" (click)="logout()">
@@ -156,10 +156,14 @@
         <ng-template #notLoggedIn>
           <!-- User is not logged in -->
           <li class="nav-item">
-            <a class="nav-link mx-2 text-uppercase" [routerLink]="['/signup']"  > Sign Up </a>
+            <a class="nav-link mx-2 text-uppercase" [routerLink]="['/signup']">
+              Sign Up
+            </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link mx-2 text-uppercase" [routerLink]="['/login']" > Login </a>
+            <a class="nav-link mx-2 text-uppercase" [routerLink]="['/login']">
+              Login
+            </a>
           </li>
         </ng-template>
       </ul>
